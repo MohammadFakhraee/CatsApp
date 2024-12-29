@@ -45,5 +45,8 @@ dependencies {
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.gson)
-    androidTestImplementation(libs.hilt.android.testing)
+    // OkHttp
+    implementation(platform(libs.okhttp.bom))
+    implementation(libs.okhttp)
+    testImplementation(libs.mockwebserver)
 }
