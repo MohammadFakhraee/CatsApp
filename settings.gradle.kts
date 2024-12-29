@@ -22,3 +22,6 @@ dependencyResolutionManagement {
 rootProject.name = "Cats App"
 include(":app")
 include(":core")
+include(":data:local")
+include(":data:remote")
+include(":data:repository_impl")
