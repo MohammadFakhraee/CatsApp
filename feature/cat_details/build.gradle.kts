@@ -34,7 +34,10 @@ android {
 }
 
 dependencies {
-
+    projects.apply {
+        implementation(feature.coreUi)
+        implementation(domain.useCase)
+    }
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)

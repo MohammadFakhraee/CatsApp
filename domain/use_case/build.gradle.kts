@@ -32,7 +32,10 @@ android {
 }
 
 dependencies {
-
+    projects.apply {
+        implementation(core)
+        implementation(domain.repository)
+    }
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

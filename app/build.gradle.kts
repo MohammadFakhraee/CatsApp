@@ -38,7 +38,10 @@ android {
 }
 
 dependencies {
-
+    projects.apply {
+        implementation(feature.catsList)
+        implementation(feature.catDetails)
+    }
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
