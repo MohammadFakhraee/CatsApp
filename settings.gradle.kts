@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Cats App"
 include(":app")
- 
+include(":core")
