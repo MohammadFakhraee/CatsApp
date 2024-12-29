@@ -20,6 +20,10 @@
             <option value="$PROJECT_DIR$/domain/models" />
             <option value="$PROJECT_DIR$/domain/repository" />
             <option value="$PROJECT_DIR$/domain/use_case" />
+            <option value="$PROJECT_DIR$/feature" />
+            <option value="$PROJECT_DIR$/feature/cat_details" />
+            <option value="$PROJECT_DIR$/feature/cats_list" />
+            <option value="$PROJECT_DIR$/feature/core_ui" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
