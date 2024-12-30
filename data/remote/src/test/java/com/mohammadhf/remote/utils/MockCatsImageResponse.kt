@@ -64,6 +64,7 @@ val mockCatsImagesResult1: List<CatsImagesResponse> = arrayListOf(
         url = "https://cdn2.thecatapi.com/images/xnzzM6MBI.jpg",
         breeds = arrayListOf(
             BreedsItem(
+                id = "abys",
                 suppressedTail = 0,
                 wikipediaUrl = "https://en.wikipedia.org/wiki/Abyssinian_(cat)",
                 origin = "Egypt",
@@ -74,7 +75,6 @@ val mockCatsImagesResult1: List<CatsImagesResponse> = arrayListOf(
                 rare = 0,
                 countryCodes = "EG",
                 lap = 1,
-                id = "abys",
                 shortLegs = 0,
                 sheddingLevel = 2,
                 dogFriendly = 4,

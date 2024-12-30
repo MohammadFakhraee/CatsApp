@@ -9,7 +9,7 @@ import com.mohammadhf.local.models.BreedLocal
 @Dao
 interface BreedDao {
     @Upsert
-    suspend fun updateOrInsertAllBreeds(breedLocal: BreedLocal)
+    suspend fun updateOrInsertAllBreeds(breedsLocal: List<BreedLocal>)
 
     @Delete
     suspend fun deleteBreed(breedLocal: BreedLocal)
@@ -17,6 +17,6 @@ interface BreedDao {
     @Query("SELECT * FROM BreedLocal")
     suspend fun getAllBreeds(): List<BreedLocal>
 
-    @Query("SELECT * FROM BreedLocal WHERE id LIKE :id")
+    @Query("SELECT * FROM BreedLocal WHERE breedId LIKE :id")
     suspend fun getBreedById(id: String): BreedLocal
 }
