@@ -31,6 +31,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.androidx.lifecycle.viewmodel.android)
     projects.apply {
         implementation(domain.useCase)
     }
