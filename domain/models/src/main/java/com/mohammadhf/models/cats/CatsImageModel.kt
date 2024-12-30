@@ -1,4 +1,4 @@
-package com.mohammadhf.models.breed
+package com.mohammadhf.models.cats
 
 data class CatsImageModel(
     val id: String,
