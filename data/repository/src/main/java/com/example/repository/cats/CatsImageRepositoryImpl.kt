@@ -39,4 +39,10 @@ class CatsImageRepositoryImpl @Inject constructor(
                 }
 
             }.distinctUntilChanged()
+
+    override suspend fun toggleCatFavorite(id: String) {
+        val oldCat = catsImageLocalDataSource.getCatsImageWithId(id)
+        val newCat = oldCat.copy(isFavored = !oldCat.isFavored)
+        catsImageLocalDataSource.updateInsertCatsImages(arrayListOf(newCat))
+    }
 }
