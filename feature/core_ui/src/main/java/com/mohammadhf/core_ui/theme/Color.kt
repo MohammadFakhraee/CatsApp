@@ -1,4 +1,4 @@
-package com.mohammadhf.catsappp.ui.theme
+package com.mohammadhf.core_ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -39,6 +39,7 @@ android {
 
 dependencies {
     projects.apply {
+        implementation(feature.coreUi)
         implementation(feature.catsList)
         implementation(feature.catDetails)
     }
