@@ -4,9 +4,9 @@ import com.mohammadhf.remote.api.CatsApi
 import com.mohammadhf.remote.models.CatsImagesResponse
 import javax.inject.Inject
 
-class CatsDataSourceImpl @Inject constructor(
+class CatsRemoteDataSourceImpl @Inject constructor(
     private val catsApi: CatsApi
-) : CatsDataSource {
+) : CatsRemoteDataSource {
 
     override suspend fun getCatsList(page: Int, limit: Int): List<CatsImagesResponse> =
         catsApi.getCatsList(page = page, limit = limit)

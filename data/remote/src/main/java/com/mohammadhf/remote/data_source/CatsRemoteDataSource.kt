@@ -2,7 +2,7 @@ package com.mohammadhf.remote.data_source
 
 import com.mohammadhf.remote.models.CatsImagesResponse
 
-interface CatsDataSource {
+interface CatsRemoteDataSource {
 
     suspend fun getCatsList(
         page: Int,

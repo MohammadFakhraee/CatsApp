@@ -1,7 +1,7 @@
 package com.mohammadhf.remote.di
 
-import com.mohammadhf.remote.data_source.CatsDataSource
-import com.mohammadhf.remote.data_source.CatsDataSourceImpl
+import com.mohammadhf.remote.data_source.CatsRemoteDataSource
+import com.mohammadhf.remote.data_source.CatsRemoteDataSourceImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,6 +13,6 @@ interface DataSourcesModule {
 
     @Binds
     fun bindCatsDataSource(
-        catsDataSourceImpl: CatsDataSourceImpl
-    ): CatsDataSource
+        catsDataSourceImpl: CatsRemoteDataSourceImpl
+    ): CatsRemoteDataSource
 }
