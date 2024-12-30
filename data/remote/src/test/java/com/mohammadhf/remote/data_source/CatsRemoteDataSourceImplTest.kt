@@ -13,11 +13,11 @@ import retrofit2.Retrofit
 import junit.framework.TestCase.assertEquals
 import retrofit2.converter.gson.GsonConverterFactory
 
-class CatsDataSourceImplTest {
+class CatsRemoteDataSourceImplTest {
 
     private lateinit var mockWebServer: MockWebServer
     private lateinit var catsApi: CatsApi
-    private lateinit var catsDataSource: CatsDataSource
+    private lateinit var catsRemoteDataSource: CatsRemoteDataSource
 
     @Before
     fun setup() {
@@ -30,14 +30,14 @@ class CatsDataSourceImplTest {
             .build()
             .create(CatsApi::class.java)
 
-        catsDataSource = CatsDataSourceImpl(catsApi)
+        catsRemoteDataSource = CatsRemoteDataSourceImpl(catsApi)
     }
 
     @Test
     fun `test getCatsList success`() = runBlocking {
         mockWebServer.enqueue(MockResponse().setBody(mockCatsImagesResponse1).setResponseCode(200))
 
-        val testResponse = catsDataSource.getCatsList(page = 0, limit = 1)
+        val testResponse = catsRemoteDataSource.getCatsList(page = 0, limit = 1)
         assertEquals(mockCatsImagesResult1, testResponse)
     }
 
@@ -45,7 +45,7 @@ class CatsDataSourceImplTest {
     fun `test getCatsList hasCorrectSize`() = runBlocking {
         mockWebServer.enqueue(MockResponse().setBody(mockCatsImagesResponse2).setResponseCode(200))
 
-        val testResponse = catsDataSource.getCatsList(page = 0, limit = 2)
+        val testResponse = catsRemoteDataSource.getCatsList(page = 0, limit = 2)
         assertEquals(testResponse.size, 2)
     }
 }

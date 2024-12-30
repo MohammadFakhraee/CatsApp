@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Query
 import androidx.room.Upsert
 import com.mohammadhf.local.models.BreedLocal
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BreedDao {
@@ -16,6 +17,9 @@ interface BreedDao {
 
     @Query("SELECT * FROM BreedLocal")
     suspend fun getAllBreeds(): List<BreedLocal>
+
+    @Query("SELECT * FROM BreedLocal")
+    fun streamAllBreeds(): Flow<List<BreedLocal>>
 
     @Query("SELECT * FROM BreedLocal WHERE breedId LIKE :id")
     suspend fun getBreedById(id: String): BreedLocal

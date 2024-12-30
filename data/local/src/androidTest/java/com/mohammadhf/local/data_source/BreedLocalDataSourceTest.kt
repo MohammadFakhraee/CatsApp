@@ -9,6 +9,7 @@ import com.mohammadhf.local.data_source.breed.BreedLocalDataSourceImpl
 import com.mohammadhf.local.utils.breedData
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -46,6 +47,11 @@ class BreedLocalDataSourceTest {
     @Test
     fun getAllBreedsTest() = runTest {
         assertThat(breedLocalDataSource.getAllBreeds()).containsExactlyElementsIn(breedData)
+    }
+
+    @Test
+    fun streamAllBreedsTest() = runTest {
+        assertThat(breedLocalDataSource.streamAllBreeds().first()).containsExactlyElementsIn(breedData)
     }
 
     @Test

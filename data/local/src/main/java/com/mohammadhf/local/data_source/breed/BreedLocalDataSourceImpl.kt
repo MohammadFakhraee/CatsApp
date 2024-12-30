@@ -2,6 +2,7 @@ package com.mohammadhf.local.data_source.breed
 
 import com.mohammadhf.local.dao.BreedDao
 import com.mohammadhf.local.models.BreedLocal
+import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class BreedLocalDataSourceImpl @Inject constructor(
@@ -15,6 +16,9 @@ class BreedLocalDataSourceImpl @Inject constructor(
 
     override suspend fun getAllBreeds(): List<BreedLocal> =
         breedDao.getAllBreeds()
+
+    override fun streamAllBreeds(): Flow<List<BreedLocal>> =
+        breedDao.streamAllBreeds()
 
     override suspend fun getBreedById(id: String): BreedLocal =
         breedDao.getBreedById(id)
