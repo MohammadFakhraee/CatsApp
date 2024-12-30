@@ -19,4 +19,7 @@ interface BreedDao {
 
     @Query("SELECT * FROM BreedLocal WHERE breedId LIKE :id")
     suspend fun getBreedById(id: String): BreedLocal
+
+    @Query("SELECT * FROM BreedLocal WHERE breedId IN (:ids)")
+    suspend fun getBreedByIds(ids: List<String>): List<BreedLocal>
 }
