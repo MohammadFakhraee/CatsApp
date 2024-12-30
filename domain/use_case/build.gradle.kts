@@ -32,6 +32,7 @@ dependencies {
     projects.apply {
         implementation(core)
         implementation(data.repository)
+        implementation(domain.models)
     }
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)
