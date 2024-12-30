@@ -1,4 +1,4 @@
-package com.example.repository.mapper
+package com.mohammadhf.repository.mapper
 
 import com.mohammadhf.local.models.BreedLocal
 import com.mohammadhf.remote.models.BreedsItem

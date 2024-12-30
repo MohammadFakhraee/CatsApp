@@ -1,7 +1,7 @@
-package com.example.repository.mapper
+package com.mohammadhf.repository.mapper
 
-import com.example.repository.utils.mockLocalBreed
-import com.example.repository.utils.mockRemoteBreed
+import com.mohammadhf.repository.utils.mockLocalBreed
+import com.mohammadhf.repository.utils.mockRemoteBreed
 import com.google.common.truth.Truth.assertThat
 import org.junit.Before
 import org.junit.Test

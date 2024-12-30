@@ -1,4 +1,4 @@
-package com.example.repository.mapper
+package com.mohammadhf.repository.mapper
 
 import com.mohammadhf.local.models.BreedLocal
 import com.mohammadhf.local.models.CatsImageLocal
@@ -10,12 +10,13 @@ class CatsImageRemoteToLocalMapper @Inject constructor(
 ) {
 
     operator fun invoke(
-        catsImageResponse: CatsImagesResponse
+        catsImageResponse: CatsImagesResponse,
+        favoredMap: Map<String, Boolean>
     ): Pair<CatsImageLocal, BreedLocal> =
         CatsImageLocal(
             catsImageId = catsImageResponse.id ?: "",
             url = catsImageResponse.url ?: "",
             ownedBreedId = catsImageResponse.breeds.firstOrNull()?.id ?: "",
-            isFavored = false
+            isFavored = favoredMap[catsImageResponse.id] ?: false
         ) to breedRemoteToLocalMapper(catsImageResponse.breeds.firstOrNull())
 }

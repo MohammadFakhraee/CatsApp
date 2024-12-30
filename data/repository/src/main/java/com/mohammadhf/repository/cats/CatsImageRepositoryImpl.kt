@@ -1,6 +1,6 @@
-package com.example.repository.cats
+package com.mohammadhf.repository.cats
 
-import com.example.repository.mapper.CatsImageRemoteToLocalMapper
+import com.mohammadhf.repository.mapper.CatsImageRemoteToLocalMapper
 import com.mohammadhf.local.data_source.breed.BreedLocalDataSource
 import com.mohammadhf.local.data_source.cats.CatsImageLocalDataSource
 import com.mohammadhf.local.models.BreedLocal
@@ -24,11 +24,16 @@ class CatsImageRepositoryImpl @Inject constructor(
         catsImageLocalDataSource.streamCatsImages()
             .onStart {
                 val remoteCats = catsRemoteDataSource.getCatsList(0, 50)
-
+                // Map to remote ids in order to get local equivalent
+                val remoteIds = remoteCats.mapNotNull { it.id }
+                // Query database to find any previously persisted data
+                val existingLocalCats = catsImageLocalDataSource.getCatsImagesByIds(remoteIds)
+                // Create a map of existing items to their favorite state
+                val favoriteMap = existingLocalCats.associateBy({ it.catsImageId }, { it.isFavored })
                 val localCats = arrayListOf<CatsImageLocal>()
                 val localBreeds = arrayListOf<BreedLocal>()
                 remoteCats.forEach { item ->
-                    val (cat, breed) = catsImageRemoteToLocalMapper(item)
+                    val (cat, breed) = catsImageRemoteToLocalMapper(item, favoriteMap)
                     localCats.add(cat)
                     localBreeds.add(breed)
                 }

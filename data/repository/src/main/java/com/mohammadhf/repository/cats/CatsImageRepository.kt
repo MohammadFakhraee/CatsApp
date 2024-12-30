@@ -1,4 +1,4 @@
-package com.example.repository.cats
+package com.mohammadhf.repository.cats
 
 import com.mohammadhf.local.models.CatsImageLocal
 import kotlinx.coroutines.flow.Flow

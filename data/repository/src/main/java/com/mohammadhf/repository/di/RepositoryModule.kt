@@ -1,9 +1,9 @@
-package com.example.repository.di
+package com.mohammadhf.repository.di
 
-import com.example.repository.breed.BreedRepository
-import com.example.repository.breed.BreedRepositoryImpl
-import com.example.repository.cats.CatsImageRepository
-import com.example.repository.cats.CatsImageRepositoryImpl
+import com.mohammadhf.repository.breed.BreedRepository
+import com.mohammadhf.repository.breed.BreedRepositoryImpl
+import com.mohammadhf.repository.cats.CatsImageRepository
+import com.mohammadhf.repository.cats.CatsImageRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

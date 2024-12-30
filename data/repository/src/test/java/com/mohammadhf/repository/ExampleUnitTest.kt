@@ -1,4 +1,4 @@
-package com.example.repository
+package com.mohammadhf.repository
 
 import org.junit.Test
 
