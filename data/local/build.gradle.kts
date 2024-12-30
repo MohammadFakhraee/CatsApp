@@ -12,7 +12,7 @@ android {
     defaultConfig {
         minSdk = 24
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.mohammadhf.local.HiltTestRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -37,12 +37,16 @@ dependencies {
     }
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.core.executor.testing)
+    androidTestImplementation(libs.google.truth)
     androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
     androidTestImplementation(libs.androidx.espresso.core)
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
     androidTestImplementation(libs.hilt.android.testing)
+    kspAndroidTest(libs.hilt.android.compiler)
     // Room
     implementation(libs.androidx.room.runtime)
     ksp(libs.androidx.room.compiler)
