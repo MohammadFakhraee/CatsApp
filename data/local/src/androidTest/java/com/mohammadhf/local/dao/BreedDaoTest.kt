@@ -15,6 +15,7 @@ import org.junit.Test
 import javax.inject.Inject
 import javax.inject.Named
 import com.google.common.truth.Truth.assertThat
+import kotlinx.coroutines.flow.first
 
 @SmallTest
 @HiltAndroidTest
@@ -48,6 +49,11 @@ class BreedDaoTest {
     @Test
     fun getAllBreedsTest() = runTest {
         assertThat(breedDao.getAllBreeds()).containsExactlyElementsIn(breedData)
+    }
+
+    @Test
+    fun streamAllBreedsTest() = runTest {
+        assertThat(breedDao.streamAllBreeds().first()).containsExactlyElementsIn(breedData)
     }
 
     @Test
