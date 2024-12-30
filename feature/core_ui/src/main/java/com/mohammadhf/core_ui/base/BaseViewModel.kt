@@ -63,3 +63,5 @@ abstract class BaseViewModel<Event : BaseContract.UiEvent, UiState : BaseContrac
         initialValue = initialValue
     )
 }
+
+const val SIDE_EFFECTS_KEY = "side-effects_key"

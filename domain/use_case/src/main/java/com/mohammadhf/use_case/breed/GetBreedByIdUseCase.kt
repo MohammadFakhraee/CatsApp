@@ -7,7 +7,7 @@ import com.mohammadhf.repository.breed.BreedRepository
 import com.mohammadhf.use_case.base.UseCase
 import javax.inject.Inject
 
-class GetByIdUseCase @Inject constructor(
+class GetBreedByIdUseCase @Inject constructor(
     private val breedRepository: BreedRepository
 ) : UseCase<String, BreedModel>() {
 

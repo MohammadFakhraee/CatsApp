@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -32,8 +34,10 @@ android {
 
 dependencies {
     projects.apply {
+        implementation(core)
         implementation(feature.coreUi)
         implementation(domain.useCase)
+        implementation(domain.models)
     }
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -50,4 +54,14 @@ dependencies {
     // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.okhttp)
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    androidTestImplementation(libs.hilt.android.testing)
+    kspAndroidTest(libs.hilt.android.compiler)
+    // Navigation Compose
+    implementation(libs.navigation.compose)
+    implementation(libs.hilt.navigation.compose)
+    androidTestImplementation(libs.navigation.compose.testing)
+    implementation(libs.kotlinx.serialization)
 }
