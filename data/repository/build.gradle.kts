@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mohammadhf.remote"
+    namespace = "com.example.repository"
     compileSdk = 34
 
     defaultConfig {
@@ -20,17 +20,18 @@ android {
 
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
 }
 
 dependencies {
     projects.apply {
-        implementation(core)
+        implementation(data.local)
+        implementation(data.remote)
     }
     implementation(libs.androidx.core.ktx)
     testImplementation(libs.junit)
@@ -39,11 +40,5 @@ dependencies {
     // Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
-    // Retrofit
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
-    // OkHttp
-    implementation(platform(libs.okhttp.bom))
-    implementation(libs.okhttp)
-    testImplementation(libs.mockwebserver)
+    androidTestImplementation(libs.hilt.android.testing)
 }
