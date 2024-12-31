@@ -17,9 +17,9 @@ all the required test to validate repository logics
 - **Use Case**: Contains all the use cases used by features inside the app mapping the data from data entities to domain entities
 
 ## UI Layer
-**Core UI**: Contains the application's theme and base structure for MVI architectural pattern (_BaseContract, BaseViewModel_)
-**Cats List**: Contains the implementation of CatsList view model, its screen and a route function for external access
-**Breed List**: Contains the implementation of BreedDetails view model, its screen and a route function for external access
+- **Core UI**: Contains the application's theme and base structure for MVI architectural pattern (_BaseContract, BaseViewModel_)
+- **Cats List**: Contains the implementation of CatsList view model, its screen and a route function for external access
+- **Breed List**: Contains the implementation of BreedDetails view model, its screen and a route function for external access
 
 # Dependencies
 There are some external libraries and kotlin concepts used in this app to facilitate the development and tests:
