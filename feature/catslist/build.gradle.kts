@@ -38,6 +38,8 @@ dependencies {
         implementation(feature.coreui)
         implementation(domain.usecase)
         implementation(domain.models)
+        androidTestImplementation(data.local)
+        androidTestImplementation(data.repository)
     }
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
