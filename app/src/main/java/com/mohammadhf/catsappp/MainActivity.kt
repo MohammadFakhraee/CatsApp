@@ -11,37 +11,50 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import com.mohammadhf.catdetails.BreedDetailsRoute
+import com.mohammadhf.catslist.CatsListRoute
 import com.mohammadhf.coreui.theme.CatsAppTheme
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.serialization.Serializable
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             CatsAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                val navController = rememberNavController()
+
+                NavHost(navController = navController, startDestination = CatsList) {
+                    composable<CatsList> {
+                        CatsListRoute(
+                            onNavigateToDetails = { breedId ->
+                                navController.navigate(BreedDetails(breedId))
+                            },
+                            launchToast = {}
+                        )
+                    }
+
+                    composable<BreedDetails> {
+                        val args = it.toRoute<BreedDetails>()
+                        BreedDetailsRoute(
+                            breedId = args.breedId,
+                            onNavigateBack = {},
+                            launchToast = {}
+                        )
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+@Serializable
+object CatsList
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    com.mohammadhf.coreui.theme.CatsAppTheme {
-        Greeting("Android")
-    }
-}
+@Serializable
+data class BreedDetails(val breedId: String)
