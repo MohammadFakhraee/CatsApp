@@ -1,8 +1,13 @@
 package com.mohammadhf.catdetails
 
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mohammadhf.catdetails.BreedDetailsContract.BreedDetailsUiEvent
 import com.mohammadhf.catdetails.BreedDetailsContract.BreedDetailsUiState
@@ -44,5 +49,12 @@ private fun BreedDetailsScreen(
     uiState: BreedDetailsUiState,
     modifier: Modifier = Modifier
 ) {
-    // TODO: I must implement breeds detail to see the final result
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(8.dp),
+        color = MaterialTheme.colorScheme.tertiaryContainer
+    ) {
+        // TODO: I must implement breeds detail to see the final result
+        Text(text = uiState.breedModel.name)
+    }
 }
