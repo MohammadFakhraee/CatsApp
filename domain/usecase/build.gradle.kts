@@ -31,6 +31,7 @@ android {
 dependencies {
     projects.apply {
         implementation(core)
+        implementation(data.local)
         implementation(data.repository)
         implementation(domain.models)
     }

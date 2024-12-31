@@ -22,8 +22,7 @@ class TestableCatsImageRepository(): CatsImageRepository {
         }
     }
 }
-
-private val mockCatsImageList: List<CatsImageLocal> = arrayListOf(
+ val mockCatsImageList: List<CatsImageLocal> = arrayListOf(
     CatsImageLocal(
         catsImageId = "123",
         url = "123",
